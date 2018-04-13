@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="owc-core-main-menu">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `owc-core-main-menu`
+     * OWC main menu component
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class OwcCoreMainMenu extends Polymer.Element {
+      static get is() { return 'owc-core-main-menu'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'owc-core-main-menu'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(OwcCoreMainMenu.is, OwcCoreMainMenu);
+  </script>
+</dom-module>
