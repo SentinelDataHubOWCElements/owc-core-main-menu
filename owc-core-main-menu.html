@@ -3,11 +3,47 @@
 <dom-module id="owc-core-main-menu">
   <template>
     <style>
+
+      @import url(http://fonts.googleapis.com/css?family=Roboto);
+
       :host {
-        display: block;
+
+          position: absolute;
+          left:0;
+          width: 200px;
+          height: 100%;
+          margin-top: 5px;
+
+          background-color: #ffffff;
+          border-radius: 2px;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+          padding: 10px;
+          margin: 0px !important;
+
+      }
+      .title{
+        width: calc(100% - 25px);
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .logo{
+        width: 100px;
+      }
+
+      .logo-container{
+          width: calc(100% - 25px);
+        text-align: center;
+        align-items: center;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <div>
+      <div class="logo-container">
+        <img src="../owc-core-main-menu/logo.png" alt="Mountain View" class="logo">
+      </div>
+      <div class="title">{{title}}</div>
+    </div>
   </template>
 
   <script>
@@ -26,6 +62,10 @@
           prop1: {
             type: String,
             value: 'owc-core-main-menu'
+          },
+          title: {
+            type: String,
+            value: 'OpenWeb'
           }
         };
       }
