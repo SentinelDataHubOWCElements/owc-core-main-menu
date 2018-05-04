@@ -10,7 +10,7 @@
 
           position: absolute;
           left:0;
-          width: 200px;
+          width: 180px;
           height: 100%;
           margin-top: 5px;
 
@@ -21,11 +21,19 @@
           padding: 10px;
           margin: 0px !important;
 
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+
+
+
       }
       .title{
-        width: calc(100% - 25px);
+        width: calc(100% );
         text-align: center;
         font-size: 30px;
+        font-weight: bold;
       }
 
       .logo{
@@ -33,16 +41,123 @@
       }
 
       .logo-container{
-          width: calc(100% - 25px);
+          width: calc(100% );
         text-align: center;
         align-items: center;
       }
+
+      .subtitle{
+        color: #57606f;
+        text-align: center;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      .items-container{
+        margin-left: 15px;
+        margin-top: 50px;
+
+      }
+
+      .item{
+        width: 100%;
+        font-size: 21px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #34495e;
+        margin-top: 15px;
+      }
+
+      .item:hover .label{
+
+        color: #000000;
+        cursor: pointer;
+        text-decoration: underline;
+
+      }
+
+      .item:active{
+        color: #4E74B7;
+      }
+
+      .label{
+        vertical-align: bottom;
+
+      }
+
+      .header{
+        background-color: #FEFFFF;
+        padding: 0px;
+        margin: -10px;
+
+        border-bottom: 1px solid #8AA2CB;
+      }
+
+      .navigator{
+        height: 200px;
+        width: 100%;
+        margin-top: 60px;
+        background-color: #ffffff;
+        overflow-y: auto;
+        display:none;
+      }
+
+      .footer{
+        background-color: #FEFFFF;
+        padding: 0px;
+
+        /*margin: -10px;*/
+        bottom: 0px;
+        height: 43px;
+        width:100%;;
+        left:0px;
+        position: absolute;
+        border-top: 1px solid #8AA2CB;
+        font-size: 10px;
+
+      }
+      .footer-logo{
+        width:15px;
+        height: 15px;
+        margin-top:4px;
+        margin-left: 5px;
+        display: inline-block;
+      }
+
+      .footer-text{
+        display: inline-block;
+        margin-left:5px;
+        margin-top: -5px;
+        top: -5px;
+        text-align: center;
+        vertical-align: middle;
+      }
     </style>
     <div>
-      <div class="logo-container">
-        <img src="../owc-core-main-menu/logo.png" alt="Mountain View" class="logo">
+      <div class="header">
+        <div class="logo-container">
+          <img src="../owc-core-main-menu/logo.png" alt="Mountain View" class="logo">
+        </div>
+        <div class="title">{{title}}</div>
+        <div class="subtitle">{{subtitle}}</div>
+        <br/>
+        <br/>
       </div>
-      <div class="title">{{title}}</div>
+      <div class="items-container">
+        <div class="item"><span class="item-icon"><iron-icon icon="account-circle"></iron-icon> </span> <span class="label">Login</span></div>
+        <div class="item"><span class="item-icon"><iron-icon icon="language"></iron-icon> </span> <span class="label">Catalogue</span></div>
+        <div class="item"><span class="item-icon"><iron-icon icon="line-style"></iron-icon> </span> <span class="label">Processing</span></div>
+        <div class="item"><span class="item-icon"><iron-icon icon="settings"></iron-icon> </span> <span class="label">Settings</span></div>
+        <div class="item"><span class="item-icon"><iron-icon icon="timeline"></iron-icon> </span> <span class="label">Statistics</span></div>
+      </div>
+      <div class="navigator">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis nibh eget dui pulvinar, id tristique nunc tristique. In ac feugiat metus. Sed et laoreet est. Nullam congue pharetra urna, in dignissim dui. In placerat purus at odio hendrerit tristique. Sed ultricies eget nunc id posuere. Aliquam rutrum magna et enim pulvinar vestibulum. Proin mi ipsum, faucibus eu metus ut, egestas placerat eros. Nunc ac dapibus leo, nec fermentum libero. Donec ac sapien sed tellus tristique consequat non vel metus. In hac habitasse platea dictumst. Morbi luctus quam urna, a maximus quam luctus vel. Aenean nec nunc sit amet felis pulvinar pulvinar. Donec fermentum euismod ex, posuere sodales nulla mollis ut. Quisque pretium ex at lorem scelerisque, et euismod erat rhoncus. Morbi rutrum scelerisque dolor, in rutrum dolor tempor vitae.
+      </div>
+      <div class="footer">
+        <span><a href="https://opensource.org/community"><img src="../owc-core-main-menu/os.png" alt="Mountain View" class="footer-logo"></a></span> <span class="footer-text"><a href="http://sentineldatahub.github.io/DataHubSystem/OWC/owc_intro.html">Open Web Components 2018</a></span>
+      </div>
     </div>
   </template>
 
@@ -66,6 +181,10 @@
           title: {
             type: String,
             value: 'OpenWeb'
+          },
+          subtitle:{
+            type: String,
+            value: 'Starter kit application '
           }
         };
       }
