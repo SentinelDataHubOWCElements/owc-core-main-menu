@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.js"></script>
 
 <dom-module id="owc-core-main-menu">
   <template>
@@ -134,6 +135,48 @@
         text-align: center;
         vertical-align: middle;
       }
+
+      .layout-selector{
+
+        padding: 5px 0px 0px 5px;
+        left: 0px;
+        /*width: calc(100% - 2000px) !important;*/
+        bottom: 50px;
+        margin-top: 20px;
+        position: absolute;
+        border-top: 1px solid #8AA2CB;
+        width: 100%;
+
+
+      }
+
+      .layout-selector-button{
+        width:20px;
+        height: 20px;
+        cursor: pointer;
+        margin-right: 3px;
+        margin-left: 3px;
+        padding: 5px;
+        margin-top: 5px;
+
+      }
+
+      .layout-buttons-container{
+
+      }
+
+
+      .layout-selector-button:hover{
+        opacity: 0.5;
+      }
+      .layout-selector-button:active{
+        opacity: 0.2;
+      }
+
+      .layout-label{
+        margin-bottom: 10px;
+        margin-top: 0px;
+      }
     </style>
     <div>
       <div class="header">
@@ -148,9 +191,20 @@
       <div class="items-container">
         <div class="item"><span class="item-icon"><iron-icon icon="account-circle"></iron-icon> </span> <span class="label">Login</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="language"></iron-icon> </span> <span class="label">Catalogue</span></div>
-        <div class="item"><span class="item-icon"><iron-icon icon="line-style"></iron-icon> </span> <span class="label">Processing</span></div>
+        <div class="item" on-click="pushProcessing"><span class="item-icon"><iron-icon icon="line-style"></iron-icon> </span> <span class="label">Processing</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="settings"></iron-icon> </span> <span class="label">Settings</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="timeline"></iron-icon> </span> <span class="label">Statistics</span></div>
+      </div>
+
+
+      <div class="layout-selector" data-intro='Hello step one!'>
+        <span style="position: relative; font-size:9px; ">Layout</span>
+        <div class="layout-buttons-container">
+          <div style="display: inline-block;"><img on-click="full" id="full-layout-button" class="layout-selector-button" src="../owc-core-main-menu/full-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">One</div></div>
+          <div style="display: inline-block;"><img on-click="two" id="two-layout-button" class="layout-selector-button" src="../owc-core-main-menu/two-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Two</div></div>
+          <div style="display: inline-block;"><img on-click="four" id="four-layout-button" class="layout-selector-button" src="../owc-core-main-menu/four-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Four</div></div>
+        </div>
+
       </div>
       <div class="navigator">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis nibh eget dui pulvinar, id tristique nunc tristique. In ac feugiat metus. Sed et laoreet est. Nullam congue pharetra urna, in dignissim dui. In placerat purus at odio hendrerit tristique. Sed ultricies eget nunc id posuere. Aliquam rutrum magna et enim pulvinar vestibulum. Proin mi ipsum, faucibus eu metus ut, egestas placerat eros. Nunc ac dapibus leo, nec fermentum libero. Donec ac sapien sed tellus tristique consequat non vel metus. In hac habitasse platea dictumst. Morbi luctus quam urna, a maximus quam luctus vel. Aenean nec nunc sit amet felis pulvinar pulvinar. Donec fermentum euismod ex, posuere sodales nulla mollis ut. Quisque pretium ex at lorem scelerisque, et euismod erat rhoncus. Morbi rutrum scelerisque dolor, in rutrum dolor tempor vitae.
@@ -187,6 +241,36 @@
             value: 'Starter kit application '
           }
         };
+
+
+      }
+
+
+      connectedCallback() {
+        super.connectedCallback();
+        setTimeout(function(){introJs().start();},3000);
+        console.log("HERE");
+        console.log(introJs());
+      }
+
+      pushProcessing(){
+        var dummy = document.createElement('hello-owc');
+        this._ctx.wm.pushComponent(dummy,"150px", "Test Title" );
+        console.log('this.ctx: ', this.ctx);
+      }
+
+      full(){
+        this._ctx.wm.setLayout("FULL");
+        console.log(this.shadowRoot.querySelector("#full-layout-button").classList)
+
+      }
+
+      two(){
+        this._ctx.wm.setLayout("TWO");
+      }
+
+      four(){
+        this._ctx.wm.setLayout("FOUR");
       }
     }
 
