@@ -181,7 +181,7 @@
     <div>
       <div class="header">
         <div class="logo-container">
-          <img src="../owc-core-main-menu/logo.png" alt="Mountain View" class="logo">
+          <img src="../../bower_components/owc-core-main-menu/logo.png" alt="Mountain View" class="logo">
         </div>
         <div class="title">{{title}}</div>
         <div class="subtitle">{{subtitle}}</div>
@@ -200,17 +200,18 @@
       <div class="layout-selector" data-intro='Hello step one!'>
         <span style="position: relative; font-size:9px; ">Layout</span>
         <div class="layout-buttons-container">
-          <div style="display: inline-block;"><img on-click="full" id="full-layout-button" class="layout-selector-button" src="../owc-core-main-menu/full-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">One</div></div>
-          <div style="display: inline-block;"><img on-click="two" id="two-layout-button" class="layout-selector-button" src="../owc-core-main-menu/two-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Two</div></div>
-          <div style="display: inline-block;"><img on-click="four" id="four-layout-button" class="layout-selector-button" src="../owc-core-main-menu/four-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Four</div></div>
+          <div style="display: inline-block;"><img on-click="full" id="full-layout-button" class="layout-selector-button" src="../../bower_components/owc-core-main-menu/full-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">One</div></div>
+          <div style="display: inline-block;"><img on-click="two" id="two-layout-button" class="layout-selector-button" src="../../bower_components/owc-core-main-menu/two-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Two</div></div>
+          <div style="display: inline-block;"><img on-click="four" id="four-layout-button" class="layout-selector-button" src="../../bower_components/owc-core-main-menu/four-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Four</div></div>
         </div>
 
       </div>
+      
       <div class="navigator">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis nibh eget dui pulvinar, id tristique nunc tristique. In ac feugiat metus. Sed et laoreet est. Nullam congue pharetra urna, in dignissim dui. In placerat purus at odio hendrerit tristique. Sed ultricies eget nunc id posuere. Aliquam rutrum magna et enim pulvinar vestibulum. Proin mi ipsum, faucibus eu metus ut, egestas placerat eros. Nunc ac dapibus leo, nec fermentum libero. Donec ac sapien sed tellus tristique consequat non vel metus. In hac habitasse platea dictumst. Morbi luctus quam urna, a maximus quam luctus vel. Aenean nec nunc sit amet felis pulvinar pulvinar. Donec fermentum euismod ex, posuere sodales nulla mollis ut. Quisque pretium ex at lorem scelerisque, et euismod erat rhoncus. Morbi rutrum scelerisque dolor, in rutrum dolor tempor vitae.
       </div>
       <div class="footer">
-        <span><a href="https://opensource.org/community"><img src="../owc-core-main-menu/os.png" alt="Mountain View" class="footer-logo"></a></span> <span class="footer-text"><a href="http://sentineldatahub.github.io/DataHubSystem/OWC/owc_intro.html">Open Web Components 2018</a></span>
+        <span><a href="https://opensource.org/community"><img src="../../bower_components/owc-core-main-menu/os.png" alt="Mountain View" class="footer-logo"></a></span> <span class="footer-text"><a href="http://sentineldatahub.github.io/DataHubSystem/OWC/owc_intro.html">Open Web Components 2018</a></span>
       </div>
     </div>
   </template>
@@ -241,8 +242,6 @@
             value: 'Starter kit application '
           }
         };
-
-
       }
 
 
@@ -262,7 +261,6 @@
       full(){
         this._ctx.wm.setLayout("FULL");
         console.log(this.shadowRoot.querySelector("#full-layout-button").classList)
-
       }
 
       two(){
