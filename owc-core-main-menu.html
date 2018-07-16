@@ -249,12 +249,9 @@
       connectedCallback() {
         super.connectedCallback();
         setTimeout(function(){introJs().start();},3000);
-        console.log("HERE");
-        console.log(introJs());
       }
 	
      pushLoginBox(){ 
-        console.log("pushLoginBox");
         var loginBox = document.createElement('owc-ui-login-box');
         this._ctx.wm.pushComponent(loginBox, "150px", "Login Title");
       	
@@ -263,12 +260,10 @@
       pushProcessing(){
         var dummy = document.createElement('hello-owc');
         this._ctx.wm.pushComponent(dummy,"150px", "Test Title" );
-        console.log('this.ctx: ', this.ctx);
       }
 
       full(){
         this._ctx.wm.setLayout("FULL");
-        console.log(this.shadowRoot.querySelector("#full-layout-button").classList)
       }
 
       two(){
