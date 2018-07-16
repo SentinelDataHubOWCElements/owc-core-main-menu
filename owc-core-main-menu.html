@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../owc-ui-login-box/owc-ui-login-box.html">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.js"></script>
 
 <dom-module id="owc-core-main-menu">
@@ -189,7 +190,7 @@
         <br/>
       </div>
       <div class="items-container">
-        <div class="item"><span class="item-icon"><iron-icon icon="account-circle"></iron-icon> </span> <span class="label">Login</span></div>
+        <div class="item" on-click="pushLoginBox"><span class="item-icon"><iron-icon icon="account-circle"></iron-icon> </span> <span class="label">Login</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="language"></iron-icon> </span> <span class="label">Catalogue</span></div>
         <div class="item" on-click="pushProcessing"><span class="item-icon"><iron-icon icon="line-style"></iron-icon> </span> <span class="label">Processing</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="settings"></iron-icon> </span> <span class="label">Settings</span></div>
@@ -248,19 +249,21 @@
       connectedCallback() {
         super.connectedCallback();
         setTimeout(function(){introJs().start();},3000);
-        console.log("HERE");
-        console.log(introJs());
       }
+	
+     pushLoginBox(){ 
+        var loginBox = document.createElement('owc-ui-login-box');
+        this._ctx.wm.pushComponent(loginBox, "150px", "Login Title");
+      	
+     }
 
       pushProcessing(){
         var dummy = document.createElement('hello-owc');
         this._ctx.wm.pushComponent(dummy,"150px", "Test Title" );
-        console.log('this.ctx: ', this.ctx);
       }
 
       full(){
         this._ctx.wm.setLayout("FULL");
-        console.log(this.shadowRoot.querySelector("#full-layout-button").classList)
       }
 
       two(){
