@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../owc-ui-login-box/owc-ui-login-box.html">
+<link rel="import" href="../owc-eo-full-text-search/owc-eo-full-text-search.html">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.js"></script>
 
 <dom-module id="owc-core-main-menu">
@@ -191,7 +192,7 @@
       </div>
       <div class="items-container">
         <div class="item" on-click="pushLoginBox"><span class="item-icon"><iron-icon icon="account-circle"></iron-icon> </span> <span class="label">Login</span></div>
-        <div class="item"><span class="item-icon"><iron-icon icon="language"></iron-icon> </span> <span class="label">Catalogue</span></div>
+        <div class="item" on-click="pushCatalogue"><span class="item-icon"><iron-icon icon="language"></iron-icon> </span> <span class="label">Catalogue</span></div>
         <div class="item" on-click="pushProcessing"><span class="item-icon"><iron-icon icon="line-style"></iron-icon> </span> <span class="label">Processing</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="settings"></iron-icon> </span> <span class="label">Settings</span></div>
         <div class="item"><span class="item-icon"><iron-icon icon="timeline"></iron-icon> </span> <span class="label">Statistics</span></div>
@@ -246,16 +247,27 @@
       }
 
 
+
       connectedCallback() {
         super.connectedCallback();
         setTimeout(function(){introJs().start();},3000);
       }
 	
-     pushLoginBox(){ 
+      test(){
+        console.log('main menu used by another component');
+      }
+
+      pushLoginBox(){ 
         var loginBox = document.createElement('owc-ui-login-box');
         this._ctx.wm.pushComponent(loginBox, "150px", "Login Title");
-      	
      }
+
+     pushCatalogue(){ 
+        var catalogue = document.createElement('owc-eo-full-text-search');
+        this._ctx.wm.pushComponent(catalogue, "150px", "Catalogue Title");
+     }
+
+     
 
       pushProcessing(){
         var dummy = document.createElement('hello-owc');
