@@ -1,68 +1,74 @@
 <link rel="import" href="../polymer/polymer-element.html">
+
+<!-- Import Components which will be pushed from this componenet -->
 <link rel="import" href="../owc-ui-login-box/owc-ui-login-box.html">
 <link rel="import" href="../owc-eo-full-text-search/owc-eo-full-text-search.html">
+<link rel="import" href="../owc-eo-combo-search/owc-eo-combo-search.html">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.js"></script>
 
+<!-- Application Menu -->
 <dom-module id="owc-core-main-menu">
   <template>
     <style>
-
-      @import url(http://fonts.googleapis.com/css?family=Roboto);
+      /* @import url(http: //fonts.googleapis.com/css?family=Roboto); */
 
       :host {
-
-          position: absolute;
-          left:0;
-          width: 180px;
-          height: 100%;
-          margin-top: 5px;
-
-          background-color: #ffffff;
-          border-radius: 2px;
-          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
-          padding: 10px;
-          margin: 0px !important;
-
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-
-
-
+        position: absolute;
+        left: 0;
+        width: 180px;
+        height: 100%;
+        margin-top: 5px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        padding: 10px;
+        margin: 0px !important;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
-      .title{
-        width: calc(100% );
+
+      .header {
+        background-color: #FEFFFF;
+        padding: 0px;
+        margin: -10px;
+        border-bottom: 1px solid #8AA2CB;
+      }
+
+      .logo-container {
+        width: calc(100%);
+        text-align: center;
+        align-items: center;
+      }
+
+      .logo {
+        width: 100px;
+      }
+
+      .title {
+        width: calc(100%);
         text-align: center;
         font-size: 30px;
         font-weight: bold;
       }
 
-      .logo{
-        width: 100px;
-      }
-
-      .logo-container{
-          width: calc(100% );
-        text-align: center;
-        align-items: center;
-      }
-
-      .subtitle{
+      .subtitle {
         color: #57606f;
         text-align: center;
         margin-top: 10px;
+        margin-bottom: 30px;
         font-style: italic;
       }
 
-      .items-container{
+      /* Panels */
+      .items-container {
         margin-left: 15px;
         margin-top: 50px;
-
       }
 
-      .item{
+      /* Panel */
+      .item {
         width: 100%;
         font-size: 21px;
         -webkit-user-select: none;
@@ -73,217 +79,209 @@
         margin-top: 15px;
       }
 
-      .item:hover .label{
-
+      .item:hover .label {
         color: #000000;
         cursor: pointer;
         text-decoration: underline;
-
       }
 
-      .item:active{
+      .item:active {
         color: #4E74B7;
       }
 
-      .label{
+      .label {
         vertical-align: bottom;
-
       }
 
-      .header{
-        background-color: #FEFFFF;
-        padding: 0px;
-        margin: -10px;
-
-        border-bottom: 1px solid #8AA2CB;
-      }
-
-      .navigator{
+      .navigator {
         height: 200px;
         width: 100%;
         margin-top: 60px;
         background-color: #ffffff;
         overflow-y: auto;
-        display:none;
+        display: none;
       }
 
-      .footer{
+      .footer {
         background-color: #FEFFFF;
         padding: 0px;
-
-        /*margin: -10px;*/
         bottom: 0px;
         height: 43px;
-        width:100%;;
-        left:0px;
+        width: 100%;
+        left: 0px;
         position: absolute;
         border-top: 1px solid #8AA2CB;
         font-size: 10px;
-
       }
-      .footer-logo{
-        width:15px;
+
+      .footer-logo {
+        width: 15px;
         height: 15px;
-        margin-top:4px;
+        margin-top: 4px;
         margin-left: 5px;
         display: inline-block;
       }
 
-      .footer-text{
+      .footer-text {
         display: inline-block;
-        margin-left:5px;
+        margin-left: 5px;
         margin-top: -5px;
         top: -5px;
         text-align: center;
         vertical-align: middle;
       }
 
-      .layout-selector{
-
+      .layout-selector {
         padding: 5px 0px 0px 5px;
         left: 0px;
-        /*width: calc(100% - 2000px) !important;*/
         bottom: 50px;
         margin-top: 20px;
         position: absolute;
         border-top: 1px solid #8AA2CB;
         width: 100%;
-
-
       }
 
-      .layout-selector-button{
-        width:20px;
+      .layout-selector-button {
+        display: inline-block;
+        width: 20px;
         height: 20px;
         cursor: pointer;
         margin-right: 3px;
         margin-left: 3px;
         padding: 5px;
         margin-top: 5px;
-
       }
 
-      .layout-buttons-container{
-
-      }
-
-
-      .layout-selector-button:hover{
+      .layout-selector-button:hover {
         opacity: 0.5;
       }
-      .layout-selector-button:active{
+
+      .layout-selector-button:active {
         opacity: 0.2;
       }
 
-      .layout-label{
+      .layout-label {
         margin-bottom: 10px;
         margin-top: 0px;
       }
+
+      .item-text {
+        font-size: 9px;
+        width: 100%;
+        text-align: center;
+      }
     </style>
-    <div>
-      <div class="header">
-        <div class="logo-container">
-          <img src="../../bower_components/owc-core-main-menu/logo.png" alt="Mountain View" class="logo">
-        </div>
-        <div class="title">{{title}}</div>
-        <div class="subtitle">{{subtitle}}</div>
-        <br/>
-        <br/>
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo-container">
+        <img class="logo" src="../../bower_components/owc-core-main-menu/logo.png" alt="Mountain View">
       </div>
-      <div class="items-container">
-        <div class="item" on-click="pushLoginBox"><span class="item-icon"><iron-icon icon="account-circle"></iron-icon> </span> <span class="label">Login</span></div>
-        <div class="item" on-click="pushCatalogue"><span class="item-icon"><iron-icon icon="language"></iron-icon> </span> <span class="label">Catalogue</span></div>
-        <div class="item" on-click="pushProcessing"><span class="item-icon"><iron-icon icon="line-style"></iron-icon> </span> <span class="label">Processing</span></div>
-        <div class="item"><span class="item-icon"><iron-icon icon="settings"></iron-icon> </span> <span class="label">Settings</span></div>
-        <div class="item"><span class="item-icon"><iron-icon icon="timeline"></iron-icon> </span> <span class="label">Statistics</span></div>
+      <div class="title">{{title}}</div>
+      <div class="subtitle">{{subtitle}}</div>
+    </div>
+
+    <!-- PANELS -->
+    <div class="items-container">
+
+      <!-- Login Panel -->
+      <div class="item" on-click="btnpushLoginBox">
+        <iron-icon icon="account-circle"></iron-icon><span class="label">{{menuOptions.0}}</span>
       </div>
 
+      <!-- Catalogue Panel -->
+      <div class="item" on-click="btnPushCatalogue">
+        <iron-icon icon="language"></iron-icon><span class="label">{{menuOptions.1}}</span>
+      </div>
 
-      <div class="layout-selector" data-intro='Hello step one!'>
-        <span style="position: relative; font-size:9px; ">Layout</span>
-        <div class="layout-buttons-container">
-          <div style="display: inline-block;"><img on-click="full" id="full-layout-button" class="layout-selector-button" src="../../bower_components/owc-core-main-menu/full-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">One</div></div>
-          <div style="display: inline-block;"><img on-click="two" id="two-layout-button" class="layout-selector-button" src="../../bower_components/owc-core-main-menu/two-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Two</div></div>
-          <div style="display: inline-block;"><img on-click="four" id="four-layout-button" class="layout-selector-button" src="../../bower_components/owc-core-main-menu/four-col-layout.png" ><div style="font-size:9px;width:100%; text-align:center;">Four</div></div>
-        </div>
+      <!-- Processing Panel -->
+      <div class="item" on-click="btnPushProcessing">
+        <iron-icon icon="line-style"></iron-icon><span class="label">{{menuOptions.2}}</span>
+      </div>
 
+      <!-- Settings Panel -->
+      <div class="item">
+        <iron-icon icon="settings"></iron-icon><span class="label">{{menuOptions.3}}</span>
       </div>
-      
-      <div class="navigator">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis nibh eget dui pulvinar, id tristique nunc tristique. In ac feugiat metus. Sed et laoreet est. Nullam congue pharetra urna, in dignissim dui. In placerat purus at odio hendrerit tristique. Sed ultricies eget nunc id posuere. Aliquam rutrum magna et enim pulvinar vestibulum. Proin mi ipsum, faucibus eu metus ut, egestas placerat eros. Nunc ac dapibus leo, nec fermentum libero. Donec ac sapien sed tellus tristique consequat non vel metus. In hac habitasse platea dictumst. Morbi luctus quam urna, a maximus quam luctus vel. Aenean nec nunc sit amet felis pulvinar pulvinar. Donec fermentum euismod ex, posuere sodales nulla mollis ut. Quisque pretium ex at lorem scelerisque, et euismod erat rhoncus. Morbi rutrum scelerisque dolor, in rutrum dolor tempor vitae.
+
+      <!-- Statistics Panel -->
+      <div class="item">
+        <iron-icon icon="timeline"></iron-icon><span class="label">{{menuOptions.4}}</span>
       </div>
-      <div class="footer">
-        <span><a href="https://opensource.org/community"><img src="../../bower_components/owc-core-main-menu/os.png" alt="Mountain View" class="footer-logo"></a></span> <span class="footer-text"><a href="http://sentineldatahub.github.io/DataHubSystem/OWC/owc_intro.html">Open Web Components 2018</a></span>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="layout-selector" data-intro='Hello step one!'>
+      <div style="position: relative; font-size:9px; ">Layout</div>
+      <div style="display: inline-block;">
+        <img on-click="btnFullLayout" class="layout-selector-button" src="{{layoutsUrl.0}}">
+        <div class="item-text">One</div>
       </div>
+      <div style="display: inline-block;">
+        <img on-click="btnTwoLayout" class="layout-selector-button" src="{{layoutsUrl.1}}">
+        <div class="item-text">Two</div>
+      </div>
+      <div style="display: inline-block;">
+        <img on-click="btnFourLayout" class="layout-selector-button" src="{{layoutsUrl.2}}">
+        <div class="item-text">Four</div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="https://opensource.org/community"><img src="../../bower_components/owc-core-main-menu/os.png" class="footer-logo"></a>
+      <span class="footer-text"><a href={{footerUrl}}>{{footer}}</a></span>
     </div>
   </template>
 
   <script>
-    /**
-     * `owc-core-main-menu`
-     * OWC main menu component
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
     class OwcCoreMainMenu extends Polymer.Element {
       static get is() { return 'owc-core-main-menu'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'owc-core-main-menu'
+          title: { type: String, value: 'OpenWeb' },
+          subtitle: { type: String, value: 'Starter kit application ' },
+          menuOptions: {
+            type: Array, value: [
+              "Login", "Catalogue", "Processing", "Settings", "Statistics"
+            ]
           },
-          title: {
-            type: String,
-            value: 'OpenWeb'
+          footer: { type: String, value: 'Open Web Components 2018' },
+          layoutsUrl: {
+            type: Array, value: [
+              "../../bower_components/owc-core-main-menu/full-col-layout.png",
+              "../../bower_components/owc-core-main-menu/two-col-layout.png",
+              "../../bower_components/owc-core-main-menu/four-col-layout.png"
+            ]
           },
-          subtitle:{
-            type: String,
-            value: 'Starter kit application '
+          footerUrl: {
+            type: String, value: 'http://sentineldatahub.github.io/DataHubSystem/OWC/owc_intro.html'
           }
-        };
+        }
       }
 
-
-
-      connectedCallback() {
-        super.connectedCallback();
-        setTimeout(function(){introJs().start();},3000);
-      }
-	
-      test(){
-        console.log('main menu used by another component');
+      ready() {
+        super.ready();
+        this._ctx = ApplicationContext.getInstance().context; //Context Assignment
+        setTimeout(function () { introJs().start(); }, 3000);
       }
 
-      pushLoginBox(){ 
-        var loginBox = document.createElement('owc-ui-login-box');
-        this._ctx.wm.pushComponent(loginBox, "150px", "Login Title");
-     }
+      //UI Buttons
+      btnpushLoginBox() { this.srvPushComponent("owc-ui-login-box"); }
+      btnPushCatalogue() { this.srvPushComponent("owc-eo-combo-search"); }
+      btnPushProcessing() { this.srvPushComponent("hello-owc"); }
 
-     pushCatalogue(){ 
-        var catalogue = document.createElement('owc-eo-full-text-search');
-        this._ctx.wm.pushComponent(catalogue, "150px", "Catalogue Title");
-     }
+      btnFullLayout() { this.srvSetLayout("FULL"); }
+      btnTwoLayout() { this.srvSetLayout("TWO"); }
+      btnFourLayout() { this.srvSetLayout("FOUR"); }
 
-     
-
-      pushProcessing(){
-        var dummy = document.createElement('hello-owc');
-        this._ctx.wm.pushComponent(dummy,"150px", "Test Title" );
+      //=================================================================
+      //@Service push component using window manager and the component id
+      srvPushComponent(componentName) {
+        this._ctx.wm.pushComponent(document.createElement(componentName));
       }
 
-      full(){
-        this._ctx.wm.setLayout("FULL");
-      }
-
-      two(){
-        this._ctx.wm.setLayout("TWO");
-      }
-
-      four(){
-        this._ctx.wm.setLayout("FOUR");
+      //@Service set layout to full, two or four
+      srvSetLayout(layoutName) {
+        this._ctx.wm.setLayout(layoutName);
       }
     }
 
