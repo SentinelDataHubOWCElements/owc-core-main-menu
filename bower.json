@@ -12,7 +12,7 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "owc-ui-login-box" : "SentinelDataHubOWCElements/owc-ui-login-box#0.0.2",
     "owc-eo-full-text-search" : "SentinelDataHubOWCElements/owc-eo-full-text-search#0.0.1",
-    "owc-eo-combo-search" : "SentinelDataHubOWCElements/owc-eo-combo-search#0.0.1",
+    "owc-eo-combo-search" : "SentinelDataHubOWCElements/owc-eo-combo-search#0.0.1"
   },
   "resolutions": {
     "polymer": "^2.0.0"
